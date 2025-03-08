@@ -6,9 +6,8 @@ import streamlit as st
 sns.set(style='dark')
 
 # Pertanyaan Bisnis:
-# 1. Bagaimana tren kualitas udara (PM2.5, PM10, dll.) dari waktu ke waktu?
-# 2. Apa hubungan antara berbagai polutan dalam dataset?
-# 3. Seberapa besar pengaruh kondisi cuaca terhadap tingkat polusi udara?
+#1. Bagaimana tren kualitas udara (PM2.5, PM10, SO2, NO2, CO, O3) pada bagian pusat kota beijing (Antizhongxin, Dongsi) berubah dari waktu ke waktu?
+#2. Apakah ada korelasi antara kondisi cuaca (suhu, tekanan, kelembaban, curah hujan) dan tingkat polusi udara?
 
 # Load data
 aotizhongxin_df = pd.read_csv("PRSA_Data_Aotizhongxin_20130301-20170228.csv")
