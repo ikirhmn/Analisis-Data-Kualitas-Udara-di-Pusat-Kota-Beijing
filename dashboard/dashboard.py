@@ -10,8 +10,8 @@ sns.set(style='dark')
 #2. Apakah ada korelasi antara kondisi cuaca (suhu, tekanan, kelembaban, curah hujan) dan tingkat polusi udara?
 
 # Load data
-aotizhongxin_df = pd.read_csv("F:\Kuliah\Semangattt ML\DBS Latihan\Project Dashboard\Analisis-Data-Kualitas-Udara-di-Pusat-Kota-Beijing\dashboard\PRSA_Data_Aotizhongxin_20130301-20170228.csv")
-dongsin_df = pd.read_csv("F:\Kuliah\Semangattt ML\DBS Latihan\Project Dashboard\Analisis-Data-Kualitas-Udara-di-Pusat-Kota-Beijing\dashboard\PRSA_Data_Dongsi_20130301-20170228.csv")
+aotizhongxin_df = pd.read_csv("/mount/src/analisis-data-kualitas-udara-di-pusat-kota-beijing/data/PRSA_Data_Aotizhongxin_20130301-20170228.csv")
+dongsin_df = pd.read_csv("/mount/src/analisis-data-kualitas-udara-di-pusat-kota-beijing/data/PRSA_Data_Dongsi_20130301-20170228.csv")
 
 aotizhongxin_df['date'] = pd.to_datetime(aotizhongxin_df[['year', 'month', 'day']])
 dongsin_df['date'] = pd.to_datetime(dongsin_df[['year', 'month', 'day']])
