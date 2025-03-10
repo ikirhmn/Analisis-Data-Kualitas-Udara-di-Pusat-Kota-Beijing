@@ -71,8 +71,23 @@ ax.set_title(f"📈 Tren {pollutant} berdasarkan {time_scale}")
 ax.legend()
 st.pyplot(fig)
 
-# **2. Korelasi antara Faktor Cuaca dan Polusi Udara**
-# **2. Korelasi antara Faktor Cuaca dan Polusi Udara**
+# **2. Visualisasi Geospasial**
+st.subheader("🌍 Visualisasi Geospasial Polusi Udara")
+
+# Buat peta dasar di tengah Beijing
+m = folium.Map(location=[39.9042, 116.4074], zoom_start=12, tiles="OpenStreetMap")
+
+# Pastikan hanya baris dengan data lokasi yang valid
+geo_df = combined_df.dropna(subset=['latitude', 'longitude', 'PM2.5'])
+
+# Tambahkan HeatMap berdasarkan PM2.5
+heat_data = geo_df[['latitude', 'longitude', 'PM2.5']].values.tolist()
+HeatMap(heat_data).add_to(m)
+
+# Tampilkan peta di Streamlit
+st_folium(m, width=700, height=500)
+
+# **3. Korelasi antara Faktor Cuaca dan Polusi Udara**
 st.subheader("🌦️ Hubungan Cuaca dengan Polusi Udara")
 
 # Faktor cuaca yang bisa dipilih
@@ -90,23 +105,6 @@ ax.set_ylabel(pollutant)
 ax.set_title(f"Korelasi antara {factor} dan {pollutant}")
 
 st.pyplot(fig)
-
-# **3. Visualisasi Geospasial**
-st.subheader("🌍 Visualisasi Geospasial Polusi Udara")
-
-# Buat peta dasar di tengah Beijing
-m = folium.Map(location=[39.9042, 116.4074], zoom_start=12, tiles="OpenStreetMap")
-
-# Pastikan hanya baris dengan data lokasi yang valid
-geo_df = combined_df.dropna(subset=['latitude', 'longitude', 'PM2.5'])
-
-# Tambahkan HeatMap berdasarkan PM2.5
-heat_data = geo_df[['latitude', 'longitude', 'PM2.5']].values.tolist()
-HeatMap(heat_data).add_to(m)
-
-# Tampilkan peta di Streamlit
-st_folium(m, width=700, height=500)
-
 
 # **4. Heatmap Korelasi**
 st.subheader("📊 Matriks Korelasi Polutan dan Faktor Cuaca")
